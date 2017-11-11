@@ -1,0 +1,22 @@
+{
+  "name": "fixme",
+  "version": "1.0.0",
+  "description": "Bug",
+  "main": "specification words typing",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhumoozi/Fixme.git"
+  },
+  "keywords": [
+    "fixme"
+  ],
+  "author": "Neo.Zhu xiaofu.qin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhumoozi/Fixme.git/issues"
+  },
+  "homepage": "https://github.com/zhumoozi/Fixme.git#readme"
+}
