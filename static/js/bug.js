@@ -7,18 +7,18 @@ function loading(){
 
 function sub(){
 	stinfor();
-	var title_content = document.getElementById("b_title");
-	var replar_content = document.getElementById("b_replay");
-	var expectation_content = document.getElementById('b_expectation');
-	var chart_content = document.getElementById("b_chart");
-	var envinfo_content = document.getElementById('b_envinfo');
-	var system_content = document.getElementById("choose_systems");
-	var version_content = document.getElementById("choose_version");
-	var version_brance_content = document.getElementById("choose_version_brance");
-	var time_content = document.getElementById("choose_time");
-	var browsers_content = document.getElementById("choose_browsers");
-	var specially_content = document.getElementById("specially");
-	var interactive_content = document.getElementById("interactive");
+	var $title_content = $("#b_title");
+	var $replar_content = $("#b_replay");
+	var $expectation_content = $('#b_expectation');
+	var $chart_content = $("#b_chart");
+	var $envinfo_content = $('#b_envinfo');
+	var $system_content = $("#choose_systems");
+	var $version_content = $("#choose_version");
+	var $version_brance_content = $("#choose_version_brance");
+	var $time_content = $("#choose_time");
+	var $browsers_content = $("#choose_browsers");
+	var $specially_content = $("#specially");
+	var $interactive_content = $("#interactive");
 
 	if (specially_content.value == "") {
 		var speciallyContent = "" ;
@@ -35,71 +35,31 @@ function sub(){
 		var finalContent = interactiveContent + "\r\n" + speciallyContent + "\r\n";
 	}
 
-	document.getElementById("b_envinfo").innerHTML = "【环境信息】" + "\r\n" + 
+    $envinfo_content.innerHTML = "【环境信息】" + "\r\n" +
 "	操作系统：" + system_content.value + "\r\n" +
 "	jar包版本：" + version_content.value + "  " + version_brance_content.value + "  " + time_content.value + "\r\n" +
 "	浏览器：" + browsers_content.value + "\r\n" + finalContent;
 
 
-	document.getElementById("bug_result_title").innerHTML = title_content.value;
-	document.getElementById("bug_result_describle").innerHTML = 
+	$("#bug_result_title").innerHTML = title_content.value;
+	$("#bug_result_describle").innerHTML = 
 	"【现象步骤】" + replar_content.value + "\r\n"+ 
 	"【期望结果】" + expectation_content.value + "\r\n" + 
 	"【涉及图表】" + chart_content.value + "\r\n" + envinfo_content.value;
 }
 
- /*
-function clearContent(){
-	document.getElementById("bug_result_title").innerHTML = "";
-	document.getElementById("bug_result_describle").innerHTML = "";
-}
-*/
 
 function copyContent(){
-	var Content = document.getElementById("bug_result_describle");
+	var Content = $("#bug_result_describle");
 	Content.select(); // 选择对象
 	document.execCommand("Copy"); // 执行浏览器复制命令
 }
 
 function copyContentTitle(){
-	var Content = document.getElementById("bug_result_title");
+	var Content = $("#bug_result_title");
 	Content.select(); // 选择对象
 	document.execCommand("Copy"); // 执行浏览器复制命令
 }
-
-/*描述打印*/
-/*
-function environment() {
-	var system_content = document.getElementById("choose_systems");
-	var version_content = document.getElementById("choose_version");
-	var version_brance_content = document.getElementById("choose_version_brance");
-	var time_content = document.getElementById("choose_time");
-	var browsers_content = document.getElementById("choose_browsers");
-	var specially_content = document.getElementById("specially");
-	var interactive_content = document.getElementById("interactive");
-
-	if (specially_content.value == "") {
-		var speciallyContent = "" ;
-	}
-	else {
-		 var speciallyContent = "	特别说明：" + specially_content.value + "\r\n";
-	}
-	if (interactive_content.value == "") {
-		var interactiveContent = "";
-		var finalContent = speciallyContent + "\r\n";
-	}
-	else {
-		var interactiveContent = "	交互文档：" + interactive_content.value;
-		var finalContent = interactiveContent + "\r\n" + speciallyContent + "\r\n";
-	}
-
-	document.getElementById("b_envinfo").innerHTML = "【环境信息】" + "\r\n" + 
-"	操作系统：" + system_content.value + "\r\n" +
-"	jar包版本：" + version_content.value + "  " + version_brance_content.value + "  " + time_content.value + "\r\n" +
-"	浏览器：" + browsers_content.value + "\r\n" + finalContent;
-
-}
-*/
 
 /*调整浏览器缩放比例*/
 function set() {  
@@ -135,7 +95,7 @@ function gettimes() {
         strDate = "0" + strDate;
     }
     var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate;
-    document.getElementById("choose_time").value = currentdate;
+    $("#choose_time").value = currentdate;
 }
 
 /*页面信息存储*/
@@ -153,9 +113,9 @@ function stinfor() {
 	}
 }
 function loadstorage() {
-		for (var i = 0; i < idnum.length; i++) {	
-	  	document.getElementById(idnum[i]).innerHTML = localStorage.getItem(idnum[i]);
-		}
+    for (var i = 0; i < idnum.length; i++) {
+        document.getElementById(idnum[i]).innerHTML = localStorage.getItem(idnum[i]);
+    }
 }
 
 
