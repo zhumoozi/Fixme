@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Napoleonqinxiaofu/Fixme.git"
+    "url": "git+https://github.com/zhumoozi/Fixme.git"
   },
   "keywords": [
     "fixme"
@@ -16,7 +16,7 @@
   "author": "Neo.Zhu xiaofu.qin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Napoleonqinxiaofu/Fixme/issues"
+    "url": "https://github.com/zhumoozi/Fixme.git/issues"
   },
-  "homepage": "https://github.com/Napoleonqinxiaofu/Fixme#readme"
+  "homepage": "https://github.com/zhumoozi/Fixme.git#readme"
 }
