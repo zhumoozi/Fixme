@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery
+/jquery-1.4.min.js"></script>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="bug.js"></script>
+	<script type="text/javascript" src="addcontent.js"></script>
+	<link rel="stylesheet" type="text/css" href="bug.css" />
+	<title>巴哥模板工具</title>
+</head>
+<body onload="loading()">
+	<header>
+		<h3 style="text-align: center;color: blue;letter-spacing: 8px;">bug编辑工具</h1>
+		<hr />
+	</header>
+	<main id="index">
+		<div id="index_left">
+			<div class="text_title" >
+				<p><span>bug标题：</span></p>
+				<textarea id="b_title" placeholder="例：【指标样式设置】明细表指标调整数量级之后，文字颜色无法设置" oninput="sub()"></textarea>
+			</div>
+			<div class="text_replay">
+				<p><span>还原步骤：</span></p>
+				<textarea id="b_replay" placeholder="请详细描述还原步骤..." oninput="sub()"></textarea>
+			</div>
+			<div class="text_expectation" >
+				<p><span>期望结果：</span></p>
+				<textarea id="b_expectation" placeholder="请描述期望结果..." oninput="sub()"></textarea>
+			</div>
+			<div id="text_charts">
+				<p><span>涉及图表：</span></p>
+				<textarea id="b_chart" placeholder="请选择涉及图表..." oninput="sub()"></textarea>
+			</div>
+			<div id="text_invinfo" >
+				<p><span>环境信息：</span></p>
+				
+				<form action="" method="get">
+					操作系统:
+					<select id="choose_systems" oninput="sub()">
+						<option value="windows">Windows</option>
+						<option value="Linux">Linux</option>
+						<option value="Mac">Mac</option>
+						<option value="所有操作系统">All systems</option>
+					</select>				
+					jar包版本：
+					<select id="choose_version" oninput="sub()">
+						<option value="4.1">4.1</option>
+						<option value="4.0.2">4.0.2</option>
+						<option value="4.0">4.0</option>
+						<option value="5.0">5.0</option>
+					</select>
+					<select id="choose_version_brance" oninput="sub()">
+						<option value="release">release</option>
+						<option value="stable">stable</option>
+						<option value="refactor">refactor</option>
+						<option value="fineio">fineio</option>
+					</select>
+					<input id="choose_time" type="text" name="jar" value="" oninput="sub()"/>
+					<br />			
+					浏览器:
+					<select id="choose_browsers" oninput="sub()">
+						<option value="chrome">Chrome</option>
+						<option value="Firefox">Firefox</option>
+						<option value="IE">IE</option>
+						<option value="Safari">Safari</option>
+						<option value="所有浏览器">All browsers</option>
+					</select>				
+					特别说明：
+					<input type="text" id="specially" name="special" value="" oninput="sub()"/>
+					<br />
+					交互文档：
+					<input type="text" id="interactive" name="interact" value="" oninput="sub()"/>
+				</form>
+				<textarea id="b_envinfo" placeholder="请选择环境信息..." readonly="readonly" ></textarea>
+			</div>
+			<div id="links">
+				<a id="bug_connect" href="http://www.finedevelop.com/pages/viewpage.action?pageId=13664904" target="_blank">交互界面整理</a>
+				<a id="interact_connect" href="http://ui.finebi.com:7777/UI/" target="_blank">交互文档入口</a>
+				<a id="buglists_connect" href="http://www.finedevelop.com/pages/viewpage.action?pageId=15305429" target="_blank">Neo's buglists</a>
+				<a id="jar_connect" href="ftp://env.finedevelop.com/finebi" target="_blank">fineBI jar包</a>
+			</div>
+		</div>
+
+		<div id="index_right">
+			<form action="" method="get">
+				<span>常用内容：</span>
+				<button type="button" id="addtitle" onclick="creatElement()">添加常用标题</button>
+				<button type="button" id="addphen" onclick="creatElement()">添加常用现象</button>
+				<button type="button" id="addexpt" onclick="creatElement()">添加常用期望</button>
+				<div id="bug_example">研发中</div>
+
+				<textarea id="bug_result_title" placeholder="Here will print the bug title!" readonly="readonly"></textarea>
+				<textarea id="bug_result_describle" placeholder="Here will print the bug describle!" readonly="readonly"></textarea>			
+			</form>
+			<div id="control">
+				<button type="button" onclick="copyContentTitle()">复制主题</button>
+				<button type="button" onclick="copyContent()">复制描述</button>
+				<button type="button" onclick="testwindow()" id="createbug">创建BUG</button>
+			</div>
+			<textarea id="ttttt"></textarea>
+		</div>
+	</main>
+	<footer>
+
+	  	<p>Produce by :someone; Version:1.0;特别鸣谢：小夫</p>
+	</footer>
+</body>
+</html>
