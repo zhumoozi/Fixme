@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/zhumoozi/Fixme.git/issues"
   },
-  "homepage": "https://github.com/zhumoozi/Fixme.git#readme"
+  "homepage": "https://github.com/zhumoozi/Fixme.git#readme",
+  "devDependencies": {
+    "normalize.css": "^7.0.0"
+  }
 }
