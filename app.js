@@ -9,6 +9,8 @@ const url = require("url");
 const path = require("path");
 const http = require("http");
 
+const Restful = require("./backend/restful");
+
 // 从命令行参数获取root目录，默认是当前目录:
 const root = path.resolve(process.argv[2] || ".");
 
@@ -52,6 +54,11 @@ const createServer = (port=9527) => {
         let pathName = url.parse(request.url).pathname;
         pathName = /^[\/|\\]$/.test(pathName.trim()) ? "index.html" : pathName;
 
+        // /api/……样式的url处理方法
+        if (/api/.test(pathName)) {
+            console.log(pathName, "haha");
+        }
+
         // 获得对应的本地文件路径，类似 "/srv/www/css/bootstrap.css":
         const filePath = path.join(root, pathName);
 
@@ -69,3 +76,5 @@ const createServer = (port=9527) => {
 
     console.log("Server is running at http://127.0.0.1:" + port);
 };
+
+createServer();

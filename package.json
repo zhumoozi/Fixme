@@ -19,6 +19,11 @@
     "url": "https://github.com/zhumoozi/Fixme.git/issues"
   },
   "homepage": "https://github.com/zhumoozi/Fixme.git#readme",
+  "dependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-develop": "~0.4.0"
+  },
   "devDependencies": {
     "normalize.css": "^7.0.0"
   }
