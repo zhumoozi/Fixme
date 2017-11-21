@@ -47,10 +47,10 @@ const successRequest = (request, response, filePath) => {
  */
 const createServer = (port=9527) => {
 
-    const restfulIns = new Restful.Restful();
+    const restfulIns = new Restful.Restful(path.join(root, "store"), "main.json");
 
     // 创建服务器:
-    const server = http.createServer(function (request, response) {
+    const server = http.createServer((request, response) => {
         // 获得URL的path，类似 "/css/bootstrap.css":
         // 这个坑爹的属性pathname，竟然不是驼峰命名法写的
         let pathName = url.parse(request.url).pathname;
