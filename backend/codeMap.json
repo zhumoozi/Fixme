@@ -1,4 +1,5 @@
 {
   "description": "后台处理逻辑的时候可能会出现很多的问题，为了让前端明白后端到底发生了什么事儿，需要顶一个code->message的映射表，前端获取对应的code之后就可以了解错误信息",
+  "100": "Success saving data into file.",
   "400": "Fail to recognize api interface."
 }

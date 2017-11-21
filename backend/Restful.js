@@ -80,7 +80,7 @@ class Restful {
 
         let result = Object.keys(this._restMap).some((name, index) => {
             if (type === name) {
-                this._restMap[name].process(request, response, data);
+                this._restMap[name].process(request, response, data, this);
                 return true;
             }
         });
@@ -100,7 +100,7 @@ class Restful {
 
             let result = Object.keys(this._restMap).some((name, index) => {
                 if (type === name) {
-                    this._restMap[name].process(request, response, data);
+                    this._restMap[name].process(request, response, data, this);
                     return true;
                 }
             });
@@ -123,6 +123,10 @@ class Restful {
 
     getMainStorePath(id) {
         return this._storeMap[id];
+    }
+
+    setStorePath (id, content) {
+        this._storeMap[id] = content;
     }
 
     getStoreFolder () {

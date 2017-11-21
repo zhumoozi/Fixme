@@ -5,6 +5,7 @@
 "use strict";
 const utils = require("./utils");
 const file = require("./file");
+const path = require("path");
 
 
 module.exports.presetApi = [
@@ -13,7 +14,17 @@ module.exports.presetApi = [
         type: "POST",
         url: "/api/add",
         process (request, response, data, context) {
-            // 添加，需要的数据有
+            // 添加，逻辑是将数据保存到本地的json文件里，然后把对应的文件名称保存进context的_storeMap里
+            let uid = utils.Uid();
+            let content = data;
+            let dataStorePath = path.json(context.getStoreFolder(), uid + ".json");
+            context.setStorePath(uid, content);
+            file.writeFile(dataStorePath, content, () => {
+                utils.sendJSONData2Client(response, {
+                    code: 100,
+                    message: "Success saving data into file"
+                });
+            });
         }
     },
     {
