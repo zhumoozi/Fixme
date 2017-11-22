@@ -15,6 +15,7 @@ const cloneVar = (item) => {
 
 const sendJSONData2Client = (response, json={}) => {
     response.writeHead(200, {"Content-Type": "application/json"});
+
     // 这样是允许跨域请求的设置
     // response.writeHead(200, {
     //     "Content-Type":'application/json',
@@ -29,10 +30,15 @@ const sendJSONData2Client = (response, json={}) => {
 };
 
 const Uid = () => {
-    return new Date().getTime() + Math.random() * 1000;
+    return (new Date().getTime() + Math.random() * 1000) + "";
+};
+
+const now = () => {
+    return new Date().getTime();
 };
 
 module.exports.clone = cloneVar;
 module.exports.sendJSONData2Client = sendJSONData2Client;
 module.exports.Uid = Uid;
+module.exports.now = now;
  

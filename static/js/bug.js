@@ -50,9 +50,9 @@ function sub(){
 
 
 function copyContent(){
-	var Content = $("#bug_result_describle");
-	Content.select(); // 选择对象
-	document.execCommand("Copy"); // 执行浏览器复制命令
+    var Content = $("#bug_result_describle");
+    Content.select(); // 选择对象
+    document.execCommand("Copy"); // 执行浏览器复制命令
 }
 
 function copyContentTitle(){

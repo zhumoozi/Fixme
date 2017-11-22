@@ -9,6 +9,7 @@ const path = require("path");
 const url = require("url");
 const parseUrl = require("./parseUrl");
 const utils = require("./utils");
+const HTTP_CODES = require("./HTTPJSON").HTTP_CODES;
 
 const storeFolder = "../store/";
 const root = path.resolve(process.argv[2] || ".");
@@ -31,7 +32,10 @@ class Restful {
         // 保存映射的文件
         this._mapFile = path.join(storeFolder, storeMapFileName);
 
-        console.log(this._mapFile);
+        let defaultJsonData = {
+            length: 0,
+            _idMap: []
+        };
 
         file.exists(this._mapFile, () => {
                 // 如果该文件存在，就读取该文件
@@ -41,8 +45,8 @@ class Restful {
             },
             // 文件不存在，那么就创建一个文件
             () => {
-                file.writeFile(this._mapFile, "{}", () => {
-                    this._storeMap = {};
+                file.writeFile(this._mapFile, JSON.stringify(defaultJsonData), () => {
+                    this._storeMap = defaultJsonData;
                 });
             });
     }
@@ -85,6 +89,8 @@ class Restful {
             }
         });
 
+        console.log(type, data);
+
         // 没有遇到对应的api接口，返回一串儿错误的json
         if (!result) {
             utils.sendJSONData2Client(response, {
@@ -108,10 +114,7 @@ class Restful {
             // 没有遇到对应的api接口，返回一串儿错误的json
             if (!result) {
                 // 没有遇到对应的api接口，返回一串儿错误的json
-                utils.sendJSONData2Client(response, {
-                    code: 400,
-                    message: "Fail to recognize api interface."
-                });
+                utils.sendJSONData2Client(response, HTTP_CODES.UN_RECOGNIZE_API);
             }
 
         });
@@ -125,12 +128,85 @@ class Restful {
         return this._storeMap[id];
     }
 
-    setStorePath (id, content) {
-        this._storeMap[id] = content;
+    setStoreData (id, content) {
+        // 遍历整个_storeMap查看是否已经存在过
+        let result = Object.keys(this._storeMap).some((key) => {
+            if (key === id) {
+                return true;
+            }
+        });
+
+        // 原来没有存在过相同的id，更新length和_idMap的值
+        if (!result) {
+            this._storeMap.length++;
+            this._storeMap._idMap.push(id);
+            this._storeMap[id] = {
+                time: utils.now(),
+                state: "alive",
+                content: content,
+                index: this._storeMap.length
+            };
+        }else {
+            this._storeMap[id].content = content;
+        }
+
+        this.save();
+    }
+
+    /**
+     * 删除
+     * @param id
+     * @returns {boolean}
+     */
+    deleteStoreId (id) {
+        let index = this._storeMap._idMap.indexOf(id);
+        if (index === -1) {
+            return false;
+        }
+
+        // 将id从isMap数组中移除，然后将state的状态改成kill的状态
+        this._storeMap._idMap.splice(index, 1);
+        this._storeMap[id].state = "kill";
+        this._storeMap.length--;
+
+        this.save();
+    }
+
+    /**
+     * 返回数据
+     * @param idOrRange
+     */
+    getStoreData (idOrRange) {
+        if (!/:/.test(idOrRange)) {
+            return this._storeMap[idOrRange];
+        }
+        let arr = idOrRange.split(":");
+        arr = arr.map((item) => {return parseInt(item)});
+
+        arr = this._storeMap._idMap.slice(arr[0], arr[1]);
+
+        let obj = {};
+
+        arr.forEach((id) => {
+            let temp = this._storeMap[id];
+            obj[id] = {
+                time: temp.time,
+                content: temp.content
+            };
+        });
+
+        return obj;
     }
 
     getStoreFolder () {
         return this._storeFolder;
+    }
+
+    /**
+     * 将_storeMap的内容保存到文件中
+     */
+    save () {
+        file.writeFile(this._mapFile, JSON.stringify(this._storeMap), () => {}, () => {});
     }
 
     // 处理http通过POST方法传递过来的数据,返回的Promise对象
@@ -154,7 +230,7 @@ class Restful {
 
     // 处理Get方法传递进来的方法
     static _handleHttpGetData (request, response) {
-        let urlPath = url.parse(request.url).pathname;
+        let urlPath = url.parse(request.url).path;
         let _getData = {
             length: 0
         };
@@ -165,6 +241,7 @@ class Restful {
         }
 
         _getData = parseUrl.parse(urlPath[1]);
+        console.log(_getData)
 
         return _getData;
     }

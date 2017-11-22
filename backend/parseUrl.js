@@ -5,6 +5,11 @@
 const fs = require("fs");
 const path = require("path");
 
+const isLikeNumber = (str) => {
+    "use strict";
+    return /^[\d\.]+$/.test(str);
+};
+
 const parse = (data) => {
     data = data.toString();
 
@@ -23,7 +28,7 @@ const parse = (data) => {
     arr = data.split("&");
     arr.forEach((item, index) => {
         let a = item.split("=");
-        a[1] = isNaN(parseFloat(a[1])) ? a[1] : parseFloat(a[1]);
+        a[1] = !isLikeNumber(a[1]) ? a[1] : parseFloat(a[1]);
         postData[a[0]] = a[1];
         postData.length++;
     });
