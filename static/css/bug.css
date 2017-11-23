@@ -4,11 +4,8 @@
 
 #index_left {
 	width: 49.5%;
-	border-style: solid;
-	border-width: 2px;
-	border-color: blue;
+	border:2px solid blue;
 	float: left;
-
 }
 
 #index_right {
@@ -57,6 +54,7 @@ button {
 	border-radius: 3px;
 }
 
+
 footer {
 	position:absolute;
 	bottom:0;
@@ -77,7 +75,7 @@ footer {
 #bug_example {
 	height: 250px;
 	width: 99%;
-	float: center;
+	/*float: center;*/
 	background-color: #FAEBD7;
 }
 
@@ -106,4 +104,5 @@ footer {
 #createbug {
 	color: #fff;
     background-color: #0092ff;
+	position: static;
 }

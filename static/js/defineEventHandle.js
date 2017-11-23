@@ -48,12 +48,19 @@ define(["require"], function (require) {
         dom.val(str);
     }
 
+    function copyContent(dom){
+        var Content = dom[0];
+        Content.select(); // 选择对象
+        document.execCommand("Copy"); // 执行浏览器复制命令
+    }
+
     return {
         bugTitleKeyPress: bugTitleKeyPress,
         dropDownChange: dropDownChange,
         spliceEnvInfo: spliceEnvInfo,
         bugTitleInfo: bugTitleInfo,
-        bugContentInfo:bugContentInfo
+        bugContentInfo:bugContentInfo,
+        copyContent: copyContent
     };
 
 });
