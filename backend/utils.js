@@ -29,6 +29,17 @@ const sendJSONData2Client = (response, json={}) => {
     response.end();
 };
 
+const urlEncode = (url) => {
+    // url = encodeURIComponent(url);
+    url = url.replace(/\%3A/g, ":");
+    url = url.replace(/\%2F/g, "/");
+    url = url.replace(/\%3F/g, "?");
+    url = url.replace(/\%3D/g, "=");
+    url = url.replace(/\%26/g, "&");
+
+    return url;
+};
+
 const Uid = () => {
     return (new Date().getTime() + Math.random() * 1000) + "";
 };
@@ -39,6 +50,7 @@ const now = () => {
 
 module.exports.clone = cloneVar;
 module.exports.sendJSONData2Client = sendJSONData2Client;
+module.exports.urlEncode = urlEncode;
 module.exports.Uid = Uid;
 module.exports.now = now;
  
