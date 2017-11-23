@@ -4,6 +4,7 @@
  */
 const fs = require("fs");
 const path = require("path");
+const utils = require("./utils");
 
 const isLikeNumber = (str) => {
     "use strict";
@@ -11,14 +12,14 @@ const isLikeNumber = (str) => {
 };
 
 const parse = (data) => {
-    data = data.toString();
+    data = utils.urlEncode(data.toString());
 
     let postData = {
         length: 0
     };
     let arr;
 
-    // { length: 1, data: 'name=xiaofu.qin&age=34' }
+    // { length: 1, data: 'name=xiaofu.qin&age=18' }
     if (!/[=\?&]/.test(data)) {
         postData.data = data;
         postData.length = 1;

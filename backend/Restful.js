@@ -89,8 +89,6 @@ class Restful {
             }
         });
 
-        console.log(type, data);
-
         // 没有遇到对应的api接口，返回一串儿错误的json
         if (!result) {
             utils.sendJSONData2Client(response, {
@@ -182,6 +180,9 @@ class Restful {
         }
         let arr = idOrRange.split(":");
         arr = arr.map((item) => {return parseInt(item)});
+        let len = this._storeMap._idMap.length;
+        arr[0] = arr[0] > (len - 1) ? len - 1 : arr[0];
+        arr[1] = (arr[0] + arr[1]) >= len ? len - arr[0] : arr[1];
 
         arr = this._storeMap._idMap.slice(arr[0], arr[1]);
 
@@ -230,7 +231,8 @@ class Restful {
 
     // 处理Get方法传递进来的方法
     static _handleHttpGetData (request, response) {
-        let urlPath = url.parse(request.url).path;
+        let urlPath = url.parse(request.url, true, true).path;
+
         let _getData = {
             length: 0
         };
@@ -241,7 +243,6 @@ class Restful {
         }
 
         _getData = parseUrl.parse(urlPath[1]);
-        console.log(_getData)
 
         return _getData;
     }

@@ -62,7 +62,7 @@ module.exports.presetApi = [
         // 如果没有指定id，则返回全部
         url: "/api/get",
         process (request, response, data, context) {
-            data = context.getStoreData(data.range);
+            data = context.getStoreData(data.id || data.range);
 
             utils.sendJSONData2Client(response, data);
         }
