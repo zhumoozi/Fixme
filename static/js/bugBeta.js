@@ -114,5 +114,12 @@ define(["require", "defineEventHandle", "event"], function (require) {
         EventInstance.fire("contentChange");
     });
 
+    var $copyTheme = $("#copy_theme");
+    var $copyDescribe = $("#copy_describe");
+
+    $copyTheme.on("click",function(event) {
+        eventHandles.copyTheme($bugTitleInfo);
+    });
+
 });
  

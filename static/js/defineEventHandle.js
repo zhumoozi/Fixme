@@ -48,7 +48,7 @@ define(["require"], function (require) {
         dom.val(str);
     }
 
-    function copyContent(dom){
+    function copyTheme(dom){
         var Content = dom[0];
         Content.select(); // 选择对象
         document.execCommand("Copy"); // 执行浏览器复制命令
@@ -60,7 +60,7 @@ define(["require"], function (require) {
         spliceEnvInfo: spliceEnvInfo,
         bugTitleInfo: bugTitleInfo,
         bugContentInfo:bugContentInfo,
-        copyContent: copyContent
+        copyTheme: copyTheme
     };
 
 });
