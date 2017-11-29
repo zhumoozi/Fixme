@@ -27,14 +27,14 @@ define(["require", "defineEventHandle", "event"], function (require) {
     var bugExceptText = "";
     var bugRelateText = "";
 
-    var $spliceInfo = $("#b_envinfo");
+//    var $spliceInfo = $("#b_envinfo");
     var $bugTitleInfo = $("#bug_result_title");
     var $bugContentInfo = $("#bug_result_describle");
 
     EventInstance.on("contentChange", function() {
-        eventHandles.spliceEnvInfo($spliceInfo, systemsText, versionText, branchText, timesText, browserText, especiallyText, interactiveText);
+    //    eventHandles.spliceEnvInfo($spliceInfo, systemsText, versionText, branchText, timesText, browserText, especiallyText, interactiveText);
         eventHandles.bugTitleInfo($bugTitleInfo, titleContent);
-        eventHandles.bugContentInfo($bugContentInfo ,bugReplayText ,bugExceptText ,bugRelateText, $spliceInfo.val());
+        eventHandles.bugContentInfo($bugContentInfo ,bugReplayText ,bugExceptText ,bugRelateText, systemsText, versionText, branchText, timesText, browserText, especiallyText, interactiveText);
     });
 
     // 给Bu个标题添加键盘放开的事件
@@ -116,9 +116,21 @@ define(["require", "defineEventHandle", "event"], function (require) {
 
     var $copyTheme = $("#copy_theme");
     var $copyDescribe = $("#copy_describe");
+    var $createBug = $("#createbug");
 
+    //copy主题
     $copyTheme.on("click",function(event) {
-        eventHandles.copyTheme($bugTitleInfo);
+        eventHandles.copyThemeDescribe($bugTitleInfo);
+    });
+
+    //copy内容
+    $copyDescribe.on("click",function(event) {
+        eventHandles.copyThemeDescribe($bugContentInfo);
+    });
+
+    //创建bug
+    $createBug.on("click",function(event){
+        eventHandles.createBugs();
     });
 
 });
