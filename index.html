@@ -6,43 +6,51 @@
     <script type="text/javascript" src="static/lib/jquery.js"></script>
     <!--<script type="text/javascript" src="static/js/bug.js"></script>-->
     <!--<script type="text/javascript" src="static/js/addcontent.js"></script>-->
-    <link rel="stylesheet" href="./static/css/all.css">
+    <link rel="stylesheet" href="./static/css/index.css">
     <title>巴哥模板工具</title>
 </head>
 <body>
 <header>
-    <h3 style="text-align: center;color: blue;letter-spacing: 8px;">bug编辑工具</h3>
+    <h3 style=";">bug编辑工具</h3>
     <hr/>
 </header>
 <section id="main">
     <aside id="index_left">
-        <div class="text_title">
-            <p><span>bug标题：</span></p>
+        <div id="text_title">
+            <label><span>bug标题：</span></label>
             <textarea id="b_title" placeholder="例：【指标样式设置】明细表指标调整数量级之后，文字颜色无法设置"></textarea>
         </div>
-        <div class="text_replay">
-            <p><span>还原步骤：</span></p>
+        <div id="text_replay">
+            <label><span>还原步骤：</span></label>
             <textarea id="b_replay" placeholder="请详细描述还原步骤..."></textarea>
         </div>
-        <div class="text_expectation">
-            <p><span>期望结果：</span></p>
+        <div id="text_expectation">
+            <label><span>期望结果：</span></label>
             <textarea id="b_expectation" placeholder="请描述期望结果..."></textarea>
         </div>
         <div id="text_charts">
-            <p><span>涉及图表：</span></p>
+            <label><span>涉及图表：</span></label>
             <textarea id="b_chart" placeholder="请选择涉及图表..."></textarea>
         </div>
         <div id="text_invinfo">
-            <p><span>环境信息：</span></p>
-
-            <form action="" method="get">
-                操作系统:
+            <label><span>环境信息：</span></label>
+            <form action="" method="get" id="choose_invinfo">
+                操作系统：
                 <select id="choose_systems">
                     <option value="windows">Windows</option>
                     <option value="Linux">Linux</option>
                     <option value="Mac">Mac</option>
                     <option value="所有操作系统">All systems</option>
                 </select>
+                浏览器:
+                <select id="choose_browsers">
+                    <option value="chrome">Chrome</option>
+                    <option value="Firefox">Firefox</option>
+                    <option value="IE">IE</option>
+                    <option value="Safari">Safari</option>
+                    <option value="所有浏览器">All browsers</option>
+                </select>
+                <br />
                 jar包版本：
                 <select id="choose_version">
                     <option value="4.1">4.1</option>
@@ -58,48 +66,35 @@
                 </select>
                 <input id="choose_time" type="text" name="jar" value=""/>
                 <br/>
-                浏览器:
-                <select id="choose_browsers">
-                    <option value="chrome">Chrome</option>
-                    <option value="Firefox">Firefox</option>
-                    <option value="IE">IE</option>
-                    <option value="Safari">Safari</option>
-                    <option value="所有浏览器">All browsers</option>
-                </select>
-                特别说明：
-                <input type="text" id="especially" name="special" value=""/>
-                <br/>
                 交互文档：
                 <input type="text" id="interactive" name="interact" value=""/>
+                <br/>
+                特别说明：
+                <input type="text" id="especially" name="special" value=""/>
+                <br/>                
             </form>
-            <textarea id="b_envinfo" placeholder="请选择环境信息..." readonly="readonly"></textarea>
+<!--            <textarea id="b_envinfo" placeholder="请选择环境信息..." readonly="readonly"></textarea> -->
         </div>
     </aside>
 
     <aside id="index_right">
-        <form action="" method="get">
+
+<!--        <form action="" method="get">
             <span>bug要求</span>
             <div id="bug_example"></div>
-
-            <textarea id="bug_result_title" placeholder="Here will print the bug title!" readonly="readonly"></textarea>
-            <textarea id="bug_result_describle" placeholder="Here will print the bug describle!"
-                      readonly="readonly"></textarea>
         </form>
+-->
+        <div id="print_title">
+            <textarea id="bug_result_title" placeholder="Here will print the bug title!" readonly="readonly"></textarea>
+        </div>
+        <div id="print_describle">
+            <textarea id="bug_result_describle" placeholder="Here will print the bug describle!" readonly="readonly"></textarea>
+        </div>
         <div id="control">
             <button type="button" id="copy_theme">复制主题</button>
             <button type="button" id="copy_describe">复制描述</button>
             <button type="button" id="createbug">创建BUG</button>
         </div>
-    </aside>
-    <aside id="index_bottom">
-        <div id="common_links">
-            <a id="bug_connect" href="http://www.finedevelop.com/pages/viewpage.action?pageId=13664904" target="_blank">交互界面整理</a>
-            <a id="interact_connect" href="http://ui.finebi.com:7777/UI/" target="_blank">交互文档入口</a>
-            <a id="buglists_connect" href="http://www.finedevelop.com/pages/viewpage.action?pageId=15305429"
-               target="_blank">Neo's buglists</a>
-            <a id="jar_connect" href="ftp://env.finedevelop.com/finebi" target="_blank">fineBI jar包</a>
-        </div>
-        <div id="bug_list"></div>
     </aside>
 </section>
 <footer>
