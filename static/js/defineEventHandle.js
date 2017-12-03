@@ -57,13 +57,13 @@ define(["require"], function (require) {
         // 插入内容
         dom.val(str);
     }
-
+    //复制内容
     function copyThemeDescribe(dom){
         var Content = dom[0];
         Content.select(); // 选择对象
         document.execCommand("Copy"); // 执行浏览器复制命令
     }
-
+    //创建bug
     function createBugs(){
         var url = 'http://www.finedevelop.com:2016/secure/CreateIssue!default.jspa';
         var name = '';
@@ -73,6 +73,19 @@ define(["require"], function (require) {
         var tLeft  = (window.screen.availWidth - 10 -tWidth) / 2;
         window.open(url,name,'height=500,width=600,top='+tTop+',left='+tLeft+',toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no,z-look=yes');
     }
+    //存储信息到浏览器
+    function stInform() {
+    for (var i = 0; i < dom.length; i++) {    
+        var cvalue = $(dom[i].value).value;
+        if (typeof(Storage) !== "undefined") {
+            localStorage.setItem(dom[i].value, cvalue);
+            $(dom[i].value).innerHTML = localStorage.getItem(dom[i].value);
+        } 
+        else {
+            $(dom[i].value).innerHTML = "抱歉！您的浏览器不支持 Web Storage ...";
+        }
+    }
+}
 
     return {
         bugTitleKeyPress: bugTitleKeyPress,
@@ -81,7 +94,8 @@ define(["require"], function (require) {
         bugTitleInfo: bugTitleInfo,
         bugContentInfo:bugContentInfo,
         copyThemeDescribe: copyThemeDescribe,
-        createBugs:createBugs
+        createBugs:createBugs,
+        stInform:stInform
     };
 
 });

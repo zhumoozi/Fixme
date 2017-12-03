@@ -11,7 +11,7 @@
 </head>
 <body>
 <header>
-    <h3 style=";">bug编辑工具</h3>
+    <h3 style=";">bug编辑页面</h3>
     <hr/>
 </header>
 <section id="main">
@@ -35,14 +35,14 @@
         <div id="text_invinfo">
             <label><span>环境信息：</span></label>
             <form action="" method="get" id="choose_invinfo">
-                操作系统：
+                <label>操作系统：</label> 
                 <select id="choose_systems">
                     <option value="windows">Windows</option>
                     <option value="Linux">Linux</option>
                     <option value="Mac">Mac</option>
                     <option value="所有操作系统">All systems</option>
                 </select>
-                浏览器:
+                <label>浏览器：</label>
                 <select id="choose_browsers">
                     <option value="chrome">Chrome</option>
                     <option value="Firefox">Firefox</option>
@@ -51,7 +51,7 @@
                     <option value="所有浏览器">All browsers</option>
                 </select>
                 <br />
-                jar包版本：
+                <label>jar包版本：</label>
                 <select id="choose_version">
                     <option value="4.1">4.1</option>
                     <option value="4.0.2">4.0.2</option>
@@ -66,10 +66,10 @@
                 </select>
                 <input id="choose_time" type="text" name="jar" value=""/>
                 <br/>
-                交互文档：
+                <label>交互文档：</label>
                 <input type="text" id="interactive" name="interact" value=""/>
                 <br/>
-                特别说明：
+                <label>特别说明：</label>
                 <input type="text" id="especially" name="special" value=""/>
                 <br/>                
             </form>

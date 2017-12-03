@@ -133,5 +133,11 @@ define(["require", "defineEventHandle", "event"], function (require) {
         eventHandles.createBugs();
     });
 
+    var idnum = new Array("#b_title","#b_replay","#b_expectation","#b_chart","#choose_time","#specially","#interactive");
+    EventInstance.on("contentChange",function(){
+        eventHandles.stInform();
+    })
+
+
 });
  
