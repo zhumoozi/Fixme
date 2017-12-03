@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <script src="static/lib/require.js"></script>
     <script type="text/javascript" src="static/lib/jquery.js"></script>
+    <script src="static/lib/Cookies.js"></script>
     <!--<script type="text/javascript" src="static/js/bug.js"></script>-->
     <!--<script type="text/javascript" src="static/js/addcontent.js"></script>-->
     <link rel="stylesheet" href="./static/css/index.css">
@@ -40,7 +41,7 @@
                     <option value="windows">Windows</option>
                     <option value="Linux">Linux</option>
                     <option value="Mac">Mac</option>
-                    <option value="所有操作系统">All systems</option>
+                    <option value="allSystems">All systems</option>
                 </select>
                 <label>浏览器：</label>
                 <select id="choose_browsers">
@@ -48,7 +49,7 @@
                     <option value="Firefox">Firefox</option>
                     <option value="IE">IE</option>
                     <option value="Safari">Safari</option>
-                    <option value="所有浏览器">All browsers</option>
+                    <option value="allBrowsers">All browsers</option>
                 </select>
                 <br />
                 <label>jar包版本：</label>
@@ -111,6 +112,11 @@
     require(["require", "jquery", "bugBeta"], function(require, $) {
         var bugBeta = require("bugBeta");
 //        bugBeta.addAll();
+
+
+
+
+
     });
 </script>
 </body>

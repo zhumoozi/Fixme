@@ -33,19 +33,19 @@ define(["require"], function (require) {
 
     //bug标题字符串
     function bugTitleInfo(dom, title_content) {
-        console.log(title_content)
+        // console.log(title_content)
         // 插入内容
         dom.val(title_content);
     }
 
     //bug内容字符串拼接
-    function bugContentInfo(dom, replar_content ,expectation_content ,chart_content ,system_content, 
-        version_content, version_branch_content,time_content, browsers_content, specially_content, 
-        interactive_content) {
-        var str = 	"【现象步骤】"
-            + replar_content+ "\r\n"
-            +"【期望结果】" + expectation_content + "\r\n"
-            +"【涉及图表】" + chart_content + "\r\n"
+    function bugContentInfo(dom, replar_content, expectation_content, chart_content, system_content,
+                            version_content, version_branch_content, time_content, browsers_content, specially_content,
+                            interactive_content) {
+        var str = "【现象步骤】"
+            + replar_content + "\r\n"
+            + "【期望结果】" + expectation_content + "\r\n"
+            + "【涉及图表】" + chart_content + "\r\n"
             + "【环境信息】" + "\r\n"
             + "\t操作系统：" + system_content + "\r\n"
             + "\tjar包版本：" + version_content + "  "
@@ -53,49 +53,47 @@ define(["require"], function (require) {
             + time_content + "\r\n"
             + "\t浏览器：" + browsers_content + "\r\n"
             + (!!specially_content ? "\t特别说明：" + specially_content + "\r\n" : "")
-            + (!!interactive_content ? "\t交互文档：" + interactive_content  + "\r\n" : "");
+            + (!!interactive_content ? "\t交互文档：" + interactive_content + "\r\n" : "");
         // 插入内容
         dom.val(str);
     }
+
     //复制内容
-    function copyThemeDescribe(dom){
+    function copyThemeDescribe(dom) {
         var Content = dom[0];
         Content.select(); // 选择对象
         document.execCommand("Copy"); // 执行浏览器复制命令
     }
+
     //创建bug
-    function createBugs(){
+    function createBugs() {
         var url = 'http://www.finedevelop.com:2016/secure/CreateIssue!default.jspa';
         var name = '';
         var tWidth = 500;
         var theight = 600;
         var tTop = (window.screen.availHeight - 30 - theight) / 2;
-        var tLeft  = (window.screen.availWidth - 10 -tWidth) / 2;
-        window.open(url,name,'height=500,width=600,top='+tTop+',left='+tLeft+',toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no,z-look=yes');
+        var tLeft = (window.screen.availWidth - 10 - tWidth) / 2;
+        window.open(url, name, 'height=500,width=600,top=' + tTop + ',left=' + tLeft + ',toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no,z-look=yes');
     }
+
     //存储信息到浏览器
-    function stInform() {
-    for (var i = 0; i < dom.length; i++) {    
-        var cvalue = $(dom[i].value).value;
-        if (typeof(Storage) !== "undefined") {
-            localStorage.setItem(dom[i].value, cvalue);
-            $(dom[i].value).innerHTML = localStorage.getItem(dom[i].value);
-        } 
-        else {
-            $(dom[i].value).innerHTML = "抱歉！您的浏览器不支持 Web Storage ...";
+    function stInform(doms) {
+        // Cookies.set('key', 'value');
+        for (var i = 0; i < doms.length; i++) {
+            var cvalue = $(doms[i]).val(); // doms[i].value
+            Cookies.set(doms[i], cvalue);
         }
     }
-}
 
     return {
         bugTitleKeyPress: bugTitleKeyPress,
         dropDownChange: dropDownChange,
 //        spliceEnvInfo: spliceEnvInfo,
         bugTitleInfo: bugTitleInfo,
-        bugContentInfo:bugContentInfo,
+        bugContentInfo: bugContentInfo,
         copyThemeDescribe: copyThemeDescribe,
-        createBugs:createBugs,
-        stInform:stInform
+        createBugs: createBugs,
+        stInform: stInform
     };
 
 });
