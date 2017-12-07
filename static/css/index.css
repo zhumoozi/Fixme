@@ -37,6 +37,7 @@ label {
 textarea {
     width: 85%;
     height: 34px;
+    font-size: 13px;
     vertical-align: middle;
     margin: 3px 0px 3px 5px;
 }
@@ -61,12 +62,22 @@ input,select,textarea {
 #choose_invinfo label {
     font-size: 14px;
 }
+
+#choose_invinfo {
+    text-align: left;
+    margin: 0 0 0 30px;
+}
+
+#undis {
+    border: 0px;
+    height: 0px;
+}
 #text_title {
     
 }
 
 #text_replay {    
-    height: 120px;
+
 }
 
 #text_expectation{
@@ -77,9 +88,8 @@ input,select,textarea {
     
 }
 
-#text_invinfo {
-    
-    text-align: left;
+#text_invinfo  {    
+
 }
 
 

@@ -149,7 +149,7 @@ define(["require", "defineEventHandle", "event"], function (require) {
 
     eventHandles.bugTitleInfo($bugTitleInfo, titleContent);
     eventHandles.bugContentInfo($bugContentInfo, bugReplayText, bugExceptText, bugRelateText,
-        systemsText, versionText, branchText, timesText, browserText, especiallyText, interactiveText);
+    systemsText, versionText, branchText, timesText, browserText, especiallyText, interactiveText);
 
 
 });

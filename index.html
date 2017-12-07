@@ -18,23 +18,24 @@
 <section id="main">
     <aside id="index_left">
         <div id="text_title">
-            <label><span>bug标题：</span></label>
+            <label><span>bug标题</span></label>
             <textarea id="b_title" placeholder="例：【指标样式设置】明细表指标调整数量级之后，文字颜色无法设置"></textarea>
         </div>
         <div id="text_replay">
-            <label><span>还原步骤：</span></label>
+            <label><span>还原步骤</span></label>
             <textarea id="b_replay" placeholder="请详细描述还原步骤..."></textarea>
         </div>
         <div id="text_expectation">
-            <label><span>期望结果：</span></label>
+            <label><span>期望结果</span></label>
             <textarea id="b_expectation" placeholder="请描述期望结果..."></textarea>
         </div>
         <div id="text_charts">
-            <label><span>涉及图表：</span></label>
+            <label><span>涉及图表</span></label>
             <textarea id="b_chart" placeholder="请选择涉及图表..."></textarea>
         </div>
         <div id="text_invinfo">
-            <label><span>环境信息：</span></label>
+            <label><span>环境信息</span></label>
+            <textarea id="undis"></textarea>
             <form action="" method="get" id="choose_invinfo">
                 <label>操作系统：</label> 
                 <select id="choose_systems">
@@ -112,11 +113,6 @@
     require(["require", "jquery", "bugBeta"], function(require, $) {
         var bugBeta = require("bugBeta");
 //        bugBeta.addAll();
-
-
-
-
-
     });
 </script>
 </body>
