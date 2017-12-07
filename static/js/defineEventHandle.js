@@ -81,7 +81,7 @@ define(["require"], function (require) {
         // Cookies.set('key', 'value');
         for (var i = 0; i < doms.length; i++) {
             var cvalue = $(doms[i]).val(); // doms[i].value
-            Cookies.set(doms[i], cvalue);
+            window.LS.set(doms[i], cvalue);
         }
     }
 
