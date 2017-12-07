@@ -17,17 +17,17 @@ define(["require", "defineEventHandle", "event"], function (require) {
     var EventInstance = new Event();
 
 
-    var systemsText = Cookies.get("#choose_systems");
-    var versionText = Cookies.get("#choose_version");
-    var branchText = Cookies.get("#choose_version_brance");
-    var browserText = Cookies.get("#choose_browsers");
-    var timesText = Cookies.get("#choose_time");
-    var especiallyText = Cookies.get("#especially");
-    var interactiveText = Cookies.get("#interactive");
-    var titleContent = Cookies.get("#b_title");
-    var bugReplayText = Cookies.get("#b_replay");
-    var bugExceptText = Cookies.get("#b_expectation");
-    var bugRelateText = Cookies.get("#b_chart");
+    var systemsText = window.LS.get("#choose_systems");
+    var versionText = window.LS.get("#choose_version");
+    var branchText = window.LS.get("#choose_version_brance");
+    var browserText = window.LS.get("#choose_browsers");
+    var timesText = window.LS.get("#choose_time");
+    var especiallyText = window.LS.get("#especially");
+    var interactiveText = window.LS.get("#interactive");
+    var titleContent = window.LS.get("#b_title");
+    var bugReplayText = window.LS.get("#b_replay");
+    var bugExceptText = window.LS.get("#b_expectation");
+    var bugRelateText = window.LS.get("#b_chart");
 
 //    var $spliceInfo = $("#b_envinfo");
     var $bugTitleInfo = $("#bug_result_title");
@@ -36,7 +36,8 @@ define(["require", "defineEventHandle", "event"], function (require) {
     EventInstance.on("contentChange", function () {
         //    eventHandles.spliceEnvInfo($spliceInfo, systemsText, versionText, branchText, timesText, browserText, especiallyText, interactiveText);
         eventHandles.bugTitleInfo($bugTitleInfo, titleContent);
-        eventHandles.bugContentInfo($bugContentInfo, bugReplayText, bugExceptText, bugRelateText, systemsText, versionText, branchText, timesText, browserText, especiallyText, interactiveText);
+        eventHandles.bugContentInfo($bugContentInfo, bugReplayText, bugExceptText, bugRelateText,
+            systemsText, versionText, branchText, timesText, browserText, especiallyText, interactiveText);
     });
 
     // 给Bu个标题添加键盘放开的事件
@@ -143,8 +144,8 @@ define(["require", "defineEventHandle", "event"], function (require) {
     //   var domIds = ["#b_title","#b_replay","#b_expectation","#b_chart","#choose_time","#specially","#interactive","#choose_systems",
     //       "#choose_browsers","#choose_version","#choose_version","#choose_version_brance","#choose_time","#interactive","#especially"];
     domIds.forEach(function (id, i) {
-        // console.log(Cookies.get(id), i);
-        $(id).val(Cookies.get(id));
+        // console.log(window.LS.get(id), i);
+        $(id).val(window.LS.get(id));
     });
 
     eventHandles.bugTitleInfo($bugTitleInfo, titleContent);
