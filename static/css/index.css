@@ -14,6 +14,8 @@ h3 {
     padding: 0;
     text-overflow: ellipsis;
     white-space: nowrap;
+    width: 200px;
+    background-color: red;
 }
 
 #main {
@@ -73,26 +75,12 @@ input,select,textarea {
     border: 0px;
     height: 0px;
 }
-#text_title {
-    
+
+#clear_all {
+    position: absolute;
+    right: 50px;
+    top: 20px;
 }
-
-#text_replay {    
-
-}
-
-#text_expectation{
-    
-}
-
-#text_charts {
-    
-}
-
-#text_invinfo  {    
-
-}
-
 
 #print_title {    
     text-align: center;
@@ -114,6 +102,14 @@ input,select,textarea {
 
 #bug_result_describle {
     height: 190px;
+}
+
+#createbug {
+    background-color: #0092ff;
+    box-shadow: none;
+    border: 0;
+    border-radius: 3.01px;
+    color: white;
 }
 
 footer {

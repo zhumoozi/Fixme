@@ -6,6 +6,7 @@ define(["require", "defineEventHandle", "event"], function (require) {
 
     var domIds = ["#b_title", "#b_replay", "#b_expectation", "#b_chart", "#choose_time", "#specially", "#interactive", "#choose_systems",
         "#choose_browsers", "#choose_version", "#choose_version", "#choose_version_brance", "#choose_time", "#interactive", "#especially"];
+    var domIdsClear = ["#b_title", "#b_replay", "#b_expectation", "#b_chart"]
     var $bugTitle = $("#b_title");
     var $bugReplay = $("#b_replay");
     var $bugExcept = $("#b_expectation");
@@ -120,6 +121,7 @@ define(["require", "defineEventHandle", "event"], function (require) {
     var $copyTheme = $("#copy_theme");
     var $copyDescribe = $("#copy_describe");
     var $createBug = $("#createbug");
+    var $clearAll = $("#clear_all");
 
     //copy主题
     $copyTheme.on("click", function (event) {
@@ -136,10 +138,17 @@ define(["require", "defineEventHandle", "event"], function (require) {
         eventHandles.createBugs();
     });
 
+    $clearAll.on("click",function(event){        
+        domIdsClear.forEach(function (id, i) {
+            // console.log(window.LS.get(id), i);
+            $(id).val(window.LS.remove(id));
+        });
+    })
+
 
     EventInstance.on("contentChange", function () {
         eventHandles.stInform(domIds);
-    })
+    });
 
     //   var domIds = ["#b_title","#b_replay","#b_expectation","#b_chart","#choose_time","#specially","#interactive","#choose_systems",
     //       "#choose_browsers","#choose_version","#choose_version","#choose_version_brance","#choose_time","#interactive","#especially"];

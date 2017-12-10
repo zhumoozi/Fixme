@@ -9,11 +9,13 @@
     <!--<script type="text/javascript" src="static/js/bug.js"></script>-->
     <!--<script type="text/javascript" src="static/js/addcontent.js"></script>-->
     <link rel="stylesheet" href="./static/css/index.css">
-    <title>巴哥模板工具</title>
+    <link rel="shortcut icon" href="bug.ico">
+    <title>bug模板</title>
 </head>
 <body>
 <header>
     <h3 style=";">bug编辑页面</h3>
+    <button type="button" id="clear_all">一键重置</button>
     <hr/>
 </header>
 <section id="main">
@@ -37,6 +39,7 @@
         <div id="text_invinfo">
             <label><span>环境信息</span></label>
             <textarea id="undis"></textarea>
+
             <form action="" method="get" id="choose_invinfo">
                 <label>操作系统：</label> 
                 <select id="choose_systems">
@@ -101,7 +104,7 @@
     </aside>
 </section>
 <footer>
-    <p>Version:1.0;Produce by :Neo.Zhu;鸣谢：xiaofu.qin</p>
+    <p>Version:1.0;  Powered by:Neo.Zhu;  鸣谢：xiaofu.qin</p>
 </footer>
 <script>
     requirejs.config({
