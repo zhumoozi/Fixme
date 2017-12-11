@@ -10,7 +10,7 @@
 
 3.需要添加啥内容，请联系Neo.Zhu。
 
-4.下个版本预计在1个月之后推出。
+4.根据需求更新git地址：https://github.com/zhumoozi/Fixme.git。
 
 
 
