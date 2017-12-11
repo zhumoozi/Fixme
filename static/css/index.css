@@ -14,8 +14,6 @@ h3 {
     padding: 0;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 200px;
-    background-color: red;
 }
 
 #main {
