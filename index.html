@@ -42,34 +42,38 @@
 
             <form action="" method="get" id="choose_invinfo">
                 <label>操作系统：</label> 
-                <select id="choose_systems">
+                <input list="systemsinput" id="choose_systems">
+                <datalist id="systemsinput">
                     <option value="windows">Windows</option>
                     <option value="Linux">Linux</option>
                     <option value="Mac">Mac</option>
                     <option value="allSystems">All systems</option>
-                </select>
+                </datalist>
                 <label>浏览器：</label>
-                <select id="choose_browsers">
+                <input list="browsersinput" id="choose_browsers">
+                <datalist id="browsersinput">
                     <option value="chrome">Chrome</option>
                     <option value="Firefox">Firefox</option>
                     <option value="IE">IE</option>
                     <option value="Safari">Safari</option>
                     <option value="allBrowsers">All browsers</option>
-                </select>
+                </datalist>
                 <br />
                 <label>jar包版本：</label>
-                <select id="choose_version">
+                <input list="versioninput" id="choose_version">
+                <datalist id="versioninput">
                     <option value="4.1">4.1</option>
                     <option value="4.0.2">4.0.2</option>
                     <option value="4.0">4.0</option>
                     <option value="5.0">5.0</option>
-                </select>
-                <select id="choose_version_brance">
+                </datalist>
+                <input list="branceinput" id="choose_version_brance">
+                <datalist id="branceinput">
                     <option value="release">release</option>
                     <option value="stable">stable</option>
                     <option value="refactor">refactor</option>
                     <option value="fineio">fineio</option>
-                </select>
+                </datalist>
                 <input id="choose_time" type="text" name="jar" placeholder="2017-12-09" value=""/>
                 <br/>
                 <label>交互文档：</label>

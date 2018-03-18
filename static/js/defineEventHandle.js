@@ -54,7 +54,7 @@ define(["require"], function (require) {
             + "\t浏览器：" + browsers_content + "\r\n"
             + (!!specially_content ? "\t特别说明：" + specially_content + "\r\n" : "")
             + (!!interactive_content ? "\t交互文档：" + interactive_content + "\r\n" : "");
-        // 插入内容
+
         dom.val(str);
     }
 
